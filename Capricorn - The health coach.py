@@ -2424,7 +2424,12 @@ elif page == "🍽️ Calorie Checker":
                                     st.markdown(f"**{fk.title()}**")
                                     st.caption(desc)
                                 with c2:
-                                    if st.button(f"➕{cal}", key=f"libcat_{fk}"):
+                                    for i, item in enumerate(food_list):
+                                           fk = item["id"]
+                                               cal = item["calories"]
+
+                                     if st.button(f"➕ {cal}", key=f"libcat_{fk}_{i}"):
+                                                           pass
                                         st.session_state.calorie_log.append({
                                             "time":     datetime.datetime.now().strftime("%H:%M"),
                                             "food":     fk,
